@@ -1,2 +1,1 @@
-# Cosplay
-Cosplay目录
+# cos

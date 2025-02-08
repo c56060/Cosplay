@@ -5,10 +5,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cosplay目录</title>
-        <link rel="icon" href="图标-10种尺寸.ico" type="image/x-icon">
+        <link rel="icon" href="网页素材/图标-10种尺寸.ico" type="image/x-icon">
         <style>
             body {
-                background-image: url('背景.jpg');
+                background-image: url('网页素材/背景.jpg');
                 background-size: cover; /* 使背景图片覆盖整个页面 */
                 background-repeat: no-repeat; /* 不重复显示背景图片 */
                 background-attachment: fixed; /* 固定背景图片，不随页面滚动 */
@@ -68,7 +68,7 @@
                 font-size: 18px;
                 font-family: 'KaiTi', serif;
                 background-color: rgba(200, 200, 200, 0.88);
-                padding: 5px;
+                padding: 3px;
                 border-radius: 5px;
                 white-space: nowrap;
             }
@@ -78,54 +78,43 @@
             /* 使用 Flexbox 布局调整搜索框和按钮的位置 */
            .search-container {
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                text-align: center; /* 添加文本居中属性 */
                 margin-bottom: 20px;
             }
             #search-input {
                 width: 300px;
                 height: 30px;
-                margin: 10px;
+                margin: 10px 0;
                 padding: 5px;
                 font-size: 16px;
             }
-            button {
-                width: 100px;
-                height: 40px;
-                margin: 10px;
-                padding: 5px;
-                font-size: 16px;
+            #top-left-text {
+                margin: 0;
+                padding: 0;
             }
             #no-result-message {
                 text-align: center;
                 color: red;
                 margin-top: 20px;
             }
-            #top-left-text {
-                position: absolute;
-                top: 20px;
-                left: 20px;
-                font-size: 24px;
-                color: black;
-                /* 你可以根据需要添加更多样式属性 */
-            }
         </style>
     </head>
     <body>
-        <div id="top-left-text">点击图片查看详细目录<br>更多资源Q群:138831650</div>
         <div class="search-container">
             <input type="text" id="search-input" placeholder="搜索Cosplay名称或编号">
-            <button onclick="searchImages()">搜索</button>
-            <button onclick="showAllImages()">返回</button>
+            <div id="top-left-text">点击图片查看详细目录<br>更多资源Q群:138831650</div>
         </div>
         <div class="gallery">
             
     <div class="image-item" id="image-1">
         <a href="001.白银81.html" target="_blank">
-            <img src="预览图/processed_001.白银81.jpeg" alt="白银81">
+            <img src="预览图/processed_001.白银81.jpeg" alt="﻿白银81">
         </a>
         <div class="caption-number">NO:001</div>
-        <div class="caption-name">白银81</div>
+        <div class="caption-name">﻿白银81</div>
     </div>
     
     <div class="image-item" id="image-2">
@@ -2034,10 +2023,10 @@
     
     <div class="image-item" id="image-240">
         <a href="240.Dami (퀸다미).html" target="_blank">
-            <img src="预览图/processed_240.Dami퀸다미.jpeg" alt="Dami (퀸다미)">
+            <img src="预览图/processed_240.Dami퀸다미.jpeg" alt="Dami (???)">
         </a>
         <div class="caption-number">NO:240</div>
-        <div class="caption-name">Dami (퀸다미)</div>
+        <div class="caption-name">Dami (???)</div>
     </div>
     <div class='row-break'></div>
     <div class="image-item" id="image-241">
@@ -3683,6 +3672,8 @@
         </div>
         <p id="no-result-message">如未找到您喜欢的图片!<br>添加Q群:138831650 联系管理！</p>
         <script>
+            document.getElementById('search-input').addEventListener('input', searchImages);
+
             function searchImages() {
                 var searchTerm = document.getElementById('search-input').value.toLowerCase();
                 var imageItems = document.querySelectorAll('.image-item');
@@ -3708,19 +3699,6 @@
                             rowBreaks[Math.floor(index / 4)].style.display = 'block';
                         }
                     }
-                });
-            }
-
-            function showAllImages() {
-                var imageItems = document.querySelectorAll('.image-item');
-                var rowBreaks = document.querySelectorAll('.row-break');
-
-                // 显示所有图片项和换行元素
-                imageItems.forEach(function(item) {
-                    item.style.display = 'inline-block';
-                });
-                rowBreaks.forEach(function(breakElement) {
-                    breakElement.style.display = 'block';
                 });
             }
         </script>

@@ -6,12 +6,12 @@ import re
 image_folder = "预览图"
 # 名称文本文件路径，相对于项目根目录
 name_file = "名称文件/名称.txt"
-# 输出网页文件存放路径，相对于项目根目录
-output_folder = "主网页"
+# 输出网页文件存放路径，相对于项目根目录，修改为当前目录
+output_folder = "."
 # 详细目录文件夹路径，相对于项目根目录
 detail_folder = "详细目录"
-# 子网页文件夹路径，相对于项目根目录
-subpage_folder = "子网页"
+# 子网页文件夹路径，相对于项目根目录，修改为当前目录
+subpage_folder = "."
 # 背景图片路径，相对于项目根目录
 background_image_path = "网页素材/背景.jpg"
 # 图标文件路径，相对于项目根目录
@@ -62,10 +62,15 @@ for detail_file in detail_files:
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>详细信息 - {subpage_title}</title>
+            <link rel="icon" href="{favicon_path}" type="image/x-icon">
             <style>
                 body {{
                     font-family: Arial, sans-serif;
                     margin: 20px;
+                    background-image: url('{background_image_path}');
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
                 }}
                .content {{
                     margin: 20px;
@@ -93,7 +98,7 @@ for index, (image_file, name) in enumerate(zip(image_files, names), start=1):
     # 在编号前添加 NO:
     numbered_caption = f"NO:{formatted_index}"
     # 创建跳转链接，确保每个图片链接到正确的子页面
-    subpage_link = f"{subpage_folder}/{subpage_titles[index - 1]}.html" if index - 1 < len(subpage_titles) else "#"
+    subpage_link = f"{subpage_titles[index - 1]}.html" if index - 1 < len(subpage_titles) else "#"
     html_code += f"""
     <div class="image-item" id="image-{index}">
         <a href="{subpage_link}" target="_blank">
@@ -107,8 +112,8 @@ for index, (image_file, name) in enumerate(zip(image_files, names), start=1):
     if index % 4 == 0:
         html_code += "<div class='row-break'></div>"
 
-# 将生成的HTML代码保存到文件
-output_file = os.path.join(output_folder, "gallery.html")
+# 将生成的HTML代码保存到文件，修改主网页名称为 mulu.html
+output_file = os.path.join(output_folder, "mulu.html")
 with open(output_file, "w", encoding="utf-8") as file:
     file.write(f"""
     <!DOCTYPE html>
@@ -180,7 +185,7 @@ with open(output_file, "w", encoding="utf-8") as file:
                 font-size: 18px;
                 font-family: 'KaiTi', serif;
                 background-color: rgba(200, 200, 200, 0.88);
-                padding: 5px;
+                padding: 3px;
                 border-radius: 5px;
                 white-space: nowrap;
             }}
@@ -190,51 +195,42 @@ with open(output_file, "w", encoding="utf-8") as file:
             /* 使用 Flexbox 布局调整搜索框和按钮的位置 */
            .search-container {{
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                text-align: center; /* 添加文本居中属性 */
                 margin-bottom: 20px;
             }}
             #search-input {{
                 width: 300px;
                 height: 30px;
-                margin: 10px;
+                margin: 10px 0;
                 padding: 5px;
                 font-size: 16px;
             }}
-            button {{
-                width: 100px;
-                height: 40px;
-                margin: 10px;
-                padding: 5px;
-                font-size: 16px;
+            #top-left-text {{
+                margin: 0;
+                padding: 0;
             }}
             #no-result-message {{
                 text-align: center;
                 color: red;
                 margin-top: 20px;
             }}
-            #top-left-text {{
-                position: absolute;
-                top: 20px;
-                left: 20px;
-                font-size: 24px;
-                color: black;
-                /* 你可以根据需要添加更多样式属性 */
-            }}
         </style>
     </head>
     <body>
-        <div id="top-left-text">点击图片查看详细目录<br>更多资源Q群:138831650</div>
         <div class="search-container">
             <input type="text" id="search-input" placeholder="搜索Cosplay名称或编号">
-            <button onclick="searchImages()">搜索</button>
-            <button onclick="showAllImages()">返回</button>
+            <div id="top-left-text">点击图片查看详细目录<br>更多资源Q群:138831650</div>
         </div>
         <div class="gallery">
             {html_code}
         </div>
         <p id="no-result-message">如未找到您喜欢的图片!<br>添加Q群:138831650 联系管理！</p>
         <script>
+            document.getElementById('search-input').addEventListener('input', searchImages);
+
             function searchImages() {{
                 var searchTerm = document.getElementById('search-input').value.toLowerCase();
                 var imageItems = document.querySelectorAll('.image-item');
@@ -260,19 +256,6 @@ with open(output_file, "w", encoding="utf-8") as file:
                             rowBreaks[Math.floor(index / 4)].style.display = 'block';
                         }}
                     }}
-                }});
-            }}
-
-            function showAllImages() {{
-                var imageItems = document.querySelectorAll('.image-item');
-                var rowBreaks = document.querySelectorAll('.row-break');
-
-                // 显示所有图片项和换行元素
-                imageItems.forEach(function(item) {{
-                    item.style.display = 'inline-block';
-                }});
-                rowBreaks.forEach(function(breakElement) {{
-                    breakElement.style.display = 'block';
                 }});
             }}
         </script>
