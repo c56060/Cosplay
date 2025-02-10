@@ -85,7 +85,7 @@ tenletters
 兔胖胖min
 小琪-Aki
 青青子js
-清水由乃
+清水由乃.txt
 美美丘比酱
 秋和柯基
 日奈娇
@@ -113,7 +113,7 @@ tenletters
 星野咪兔
 星之迟迟
 摇摇乐yoyo
-Hyoyeon(金孝渊)
+Hyoyeon（金孝渊）
 桜桃喵
 雪琪SAMA
 雪晴Astra
@@ -121,7 +121,7 @@ Hyoyeon(金孝渊)
 樱落酱w
 工藤新伍
 芋圆侑子
-兔买买
+兔买买bunny
 在下萝莉控
 是妃诺呀w
 周叽是可爱兔兔
@@ -158,7 +158,7 @@ ElyEE子
 不死原奈
 慕恩闷贤
 小无邪和猪小糖
-黑猫猫
+黑猫猫ovo
 嘎潼
 千煌弑夜
 蓝小沂KiKi
@@ -208,12 +208,12 @@ Meggii
 NinJa阿寨寨
 千代纸Stella
 闪月半
-水那
+うたたね翠
 铅华wr
 夏美酱
-ChonoBlack
+chono black
 佳佳好难啊
-月城委员会
+月城委員会
 Tina很妖孽呀
 拿相机的执义
 茕欢
@@ -244,7 +244,7 @@ Sunnyvier
 赛高酱
 PAKI酱
 MenruiNyanko
-北哥完全OKK
+北哥完全OK
 Leah梓未
 大肉丸Amiee
 西呱呀呀呀
@@ -257,7 +257,7 @@ Sayo Momo
 eliza喵喵
 甜糖大魔王
 Fushii_海堂
-奶兔
+奶兔biubiu
 是本末末
 Tomoyo酱
 桃良阿宅
@@ -291,12 +291,12 @@ ZinieQ
 瓦斯塔亚小龙虾
 七七小姐
 白神泱Shirag
-采妮
+采妮么么(采妮酱)
 晕崽Zz
 Ruby蘸酱美美
 胡桃猫Kurumineko
 女主K
-啾小妍
+啾小妍Deer
 KANEKO_咔喵
 Umeko J
 露兒大魔王
@@ -313,7 +313,7 @@ AT鲨
 白露Bululu
 从从从从鸾
 咬一口兔娘
-斯文文文文 ：
+斯文文文文 
 Sally Dorasnow
 桃墨公子
 小小奶瓶儿
@@ -338,20 +338,20 @@ Hana Bunny
 MiMi Chan
 神探火狸狸
 Shiroi_白井茶茶
-Hmayo
+蛋黄mayo
 Alina Becker
 Arty亚缇
 阮邑_Fairy
 柘烟Zuken
 白莉爱吃巧克力
-Asagiriai(愛ちゃん)
+Asagiriai（愛ちゃん）
 艾西aiwest
 小瑶幺幺
 十万珍吱伏特
 Aery Tiefling
 Cat Demon喵崽
 刺青Poi
-冬马路纱
+Luisa_零纱
 趴趴捣蛋陌
 宮本桜
 狐玖玖
@@ -378,7 +378,7 @@ Neko-薇薇
 Puy Puy
 楊衣Yangyi
 佳奈喵
-神本无尾
+神本无尾_Aria
 薄墨锦狐&三笑
 许多鱼鱼鱼
 海沫mmmmm
@@ -436,10 +436,12 @@ Mikehouse
 是一只熊仔吗
 嶋葵
 羽生三未
-塔塔
+塔塔_Lo1iTa
 是一只废喵了
 迷之呆梨
 戚顾儿MIKI
 Candy Ball
 叫我千寻大人
 如月灰
+朝霧愛
+糖果果Candy
