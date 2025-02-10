@@ -406,7 +406,7 @@ main_template = f"""
 """
 
 # 保存默认第一页到文件
-output_file = os.path.join(output_folder, "0001---主页面.html")
+output_file = os.path.join(output_folder, "mulu.html")
 with open(output_file, "w", encoding="utf-8") as file:
     # 确保占位符一致，正确替换
     correct_placeholder = "{ page_html_code }"
