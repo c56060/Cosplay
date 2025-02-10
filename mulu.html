@@ -1,111 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosplay目录</title>
+    <link rel="icon" href="网页素材/图标-10种尺寸.ico" type="image/x-icon">
+    <style>
+        body {
+            background-image: url('网页素材/背景.jpg'); /* 设置背景图片 */
+            background-size: cover; /* 背景图片覆盖整个页面 */
+            background-repeat: no-repeat; /* 背景图片不重复显示 */
+            background-attachment: fixed; /* 背景图片固定，不随页面滚动 */
+            position: relative; /* 设置为相对定位，用于子元素的绝对定位 */
+        }
+        .gallery {
+            max-width: 1200px; /* 设置最大宽度为1200px */
+            margin: 0 auto; /* 水平居中显示 */
+            padding: 20px; /* 上下左右内边距为20px */
+            box-sizing: border-box; /* 宽度包括内边距和边框 */
+        }
+        .image-item {
+            display: inline-block; /* 设置为行内块级元素，可以并排显示 */
+            width: calc(24.5% - 2px); /* 计算宽度，每行显示4个图片，减去边框宽度 */
+            margin: 0; /* 外边距为0 */
+            position: relative; /* 设置为相对定位，用于子元素的绝对定位 */
+            text-align: center; /* 文本居中对齐 */
+            overflow: hidden; /* 隐藏超出容器的内容 */
+            box-sizing: border-box; /* 宽度包括内边距和边框 */
+            border: 1px solid transparent; /* 设置透明边框，用于鼠标悬停效果 */
+        }
+        .image-item img {
+            width: 100%; /* 图片宽度占满容器 */
+            height: auto; /* 高度自动调整，保持图片比例 */
+            border-radius: 15px; /* 图片圆角 */
+            vertical-align: bottom; /* 图片垂直对齐方式 */
+            border: 0px solid white; /* 图片无边框 */
+            box-sizing: border-box; /* 宽度包括内边距和边框 */
+        }
+        /* 编号控制 */
+        .caption-number {
+            position: absolute; /* 绝对定位 */
+            bottom: 30px; /* 距离底部30px */
+            left: 50%; /* 距离左侧50% */
+            transform: translateX(-50%); /* 水平居中 */
+            color: #FF0000; /* 文字颜色为红色 */
+            font-weight: bold; /* 文字加粗 */
+            font-size: 26px; /* 字体大小为26px */
+            font-family: 'KaiTi', serif; /* 字体为楷体，备用字体为serif */
+            background-color: rgba(0, 0, 0, 0.0); /* 背景透明 */
+            padding: 5px; /* 内边距为5px */
+            border-radius: 5px; /* 边框圆角 */
+            text-shadow: 
+                -1px -1px 0 #FFFFFF,  /* 文字阴影效果 */
+                 1px -1px 0 #FFFFFF,
+                -1px  1px 0 #FFFFFF,
+                 1px  1px 0 #FFFFFF;
+            white-space: nowrap; /* 文字不换行 */
+            letter-spacing: -2px; /* 字符间距减小 */
+        }
+        /* 名字控制 */
+        .caption-name {
+            position: absolute; /* 绝对定位 */
+            bottom: 5px; /* 距离底部5px */
+            left: 50%; /* 距离左侧50% */
+            transform: translateX(-50%); /* 水平居中 */
+            color: black; /* 文字颜色为黑色 */
+            font-weight: bold; /* 文字加粗 */
+            font-size: 18px; /* 字体大小为18px */
+            font-family: 'KaiTi', serif; /* 字体为楷体，备用字体为serif */
+            background-color: rgba(200, 200, 200, 0.88); /* 半透明灰色背景 */
+            padding: 3px; /* 内边距为3px */
+            border-radius: 5px; /* 边框圆角 */
+            white-space: nowrap; /* 文字不换行 */
+        }
+        .row-break {
+            clear: both; /* 清除浮动 */
+        }
+        /* 使用 Flexbox 布局调整搜索框和按钮的位置 */
+        .search-container {
+            display: flex; /* 使用Flexbox布局 */
+            flex-direction: column; /* 子元素垂直排列 */
+            justify-content: center; /* 垂直居中 */
+            align-items: center; /* 水平居中 */
+            text-align: center; /* 文本居中 */
+            margin-bottom: 20px; /* 底部外边距为20px */
+        }
+        #search-input {
+            width: 300px; /* 输入框宽度为300px */
+            height: 30px; /* 输入框高度为30px */
+            margin: 10px 0; /* 上下外边距为10px */
+            padding: 5px; /* 内边距为5px */
+            font-size: 16px; /* 字体大小为16px */
+        }
+        #top-left-text {
+            margin: 0; /* 外边距为0 */
+            padding: 0; /* 内边距为0 */
+        }
+        #no-result-message {
+            text-align: center; /* 文本居中 */
+            color: red; /* 文字颜色为红色 */
+            margin-top: 20px; /* 顶部外边距为20px */
+        }
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cosplay目录</title>
-        <link rel="icon" href="网页素材/图标-10种尺寸.ico" type="image/x-icon">
-        <style>
-            body {
-                background-image: url('网页素材/背景.jpg');
-                background-size: cover; /* 使背景图片覆盖整个页面 */
-                background-repeat: no-repeat; /* 不重复显示背景图片 */
-                background-attachment: fixed; /* 固定背景图片，不随页面滚动 */
-                position: relative; /* 为左上角文本定位做准备 */
+        /* 媒体查询：手机端 */
+        @media (max-width: 768px) {
+            .caption-number {
+                font-size: 18px; /* 手机端字体大小 */
             }
-           .gallery {
-                max-width: 1200px; /* 设置最大宽度 */
-                margin: 0 auto; /* 居中显示 */
-                padding: 20px; /* 为两边添加空白区域 */
-                box-sizing: border-box; /* 包含内边距和边框在宽度内 */
+            .caption-name {
+                font-size: 14px; /* 手机端字体大小 */
             }
-           .image-item {
-                display: inline-block;
-                width: calc(24.5% - 2px);
-                margin: 0;
-                position: relative;
-                text-align: center;
-                overflow: hidden;
-                box-sizing: border-box;
-                border: 1px solid transparent;
+        }
+
+        /* 媒体查询：平板端 */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .caption-number {
+                font-size: 22px; /* 平板端字体大小 */
             }
-           .image-item img {
-                width: 100%;
-                height: auto;
-                border-radius: 15px;
-                vertical-align: bottom;
-                border: 0px solid white;
-                box-sizing: border-box;
+            .caption-name {
+                font-size: 16px; /* 平板端字体大小 */
             }
-           .caption-number {
-                position: absolute;
-                bottom: 30px;
-                left: 50%;
-                transform: translateX(-50%);
-                color: #FF0000;
-                font-weight: bold;
-                font-size: 26px;
-                font-family: 'KaiTi', serif;
-                background-color: rgba(0, 0, 0, 0.0);
-                padding: 5px;
-                border-radius: 5px;
-                text-shadow: 
-                    -1px -1px 0 #FFFFFF,  
-                     1px -1px 0 #FFFFFF,
-                    -1px  1px 0 #FFFFFF,
-                     1px  1px 0 #FFFFFF;
-                white-space: nowrap;
-                letter - spacing: -2px; /* 减小字符间距，可根据需要调整 */
+        }
+
+        /* 媒体查询：电脑端 */
+        @media (min-width: 1025px) {
+            .caption-number {
+                font-size: 26px; /* 电脑端字体大小 */
             }
-           .caption-name {
-                position: absolute;
-                bottom: 5px;
-                left: 50%;
-                transform: translateX(-50%);
-                color: black;
-                font-weight: bold;
-                font-size: 18px;
-                font-family: 'KaiTi', serif;
-                background-color: rgba(200, 200, 200, 0.88);
-                padding: 3px;
-                border-radius: 5px;
-                white-space: nowrap;
+            .caption-name {
+                font-size: 18px; /* 电脑端字体大小 */
             }
-           .row-break {
-                clear: both;
-            }
-            /* 使用 Flexbox 布局调整搜索框和按钮的位置 */
-           .search-container {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center; /* 添加文本居中属性 */
-                margin-bottom: 20px;
-            }
-            #search-input {
-                width: 300px;
-                height: 30px;
-                margin: 10px 0;
-                padding: 5px;
-                font-size: 16px;
-            }
-            #top-left-text {
-                margin: 0;
-                padding: 0;
-            }
-            #no-result-message {
-                text-align: center;
-                color: red;
-                margin-top: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="搜索Cosplay名称或编号">
-            <div id="top-left-text">点击图片查看详细目录<br>更多资源Q群:138831650</div>
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="搜索Cosplay名称或编号">
+        <div id="top-left-text">点击图片查看详细目录<br>更多资源Q群:138831650</div>
         </div>
         <div class="gallery">
             
